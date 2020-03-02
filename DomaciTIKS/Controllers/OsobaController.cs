@@ -14,18 +14,11 @@ namespace DomaciTIKS.Controllers
     public class OsobaController: Controller
     {
 
-        //private readonly OsobaRepository _osobaRepository;
+        private readonly OsobaService _osobaService;
 
-        //public OsobaController(OsobaRepository osobaRepository)
-        //{
-        //    this._osobaRepository = osobaRepository;
-        //}
-
-        private readonly OsobaService _osobaRepository;
-
-        public OsobaController(OsobaService osobaRepository)
+        public OsobaController(OsobaService osobaService)
         {
-            this._osobaRepository = osobaRepository;
+            this._osobaService = osobaService;
         }
 
         //[HttpPost("dodajOsobu")]
@@ -43,7 +36,19 @@ namespace DomaciTIKS.Controllers
         [HttpGet("obrisiOsobu/{id}")]
         public void obrisiOsobu(int id)
         {
-            _osobaRepository.obrisiOsobu(id);
+            _osobaService.obrisiOsobu(id);
+        }
+
+        [HttpGet("vratiOsobe")]
+        public List<Osoba> vratiOsobe()
+        {
+            return _osobaService.vratiOsobe();
+        }
+
+        [HttpGet("vratiOsobu/{id}")]
+        public Osoba vratiOsobu(int id)
+        {
+            return _osobaService.vratiOsobu(id);
         }
     }
 }

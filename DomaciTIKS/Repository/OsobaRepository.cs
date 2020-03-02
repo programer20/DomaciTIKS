@@ -17,7 +17,35 @@ namespace DomaciTIKS.Repository
             _connectionString = connectionString;
         }
 
-        public void sacuvajOsobu(Osoba osoba)
+        public Osoba vratiOsobu(int id)
+        {
+
+            var param = new DynamicParameters(new
+            {
+                Id = id
+            });
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                Osoba result = connection.Query<Osoba>("[dbo].[VratiOsobu]", param, commandType: CommandType.StoredProcedure).Single();
+
+                Console.WriteLine(result.Id);
+                return result;
+            }
+        }
+
+        public List<Osoba> vratiOsobe()
+        {
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                List<Osoba> result = connection.Query<Osoba>("[dbo].[VratiOsobe]", null, commandType: CommandType.StoredProcedure).ToList();
+
+                return result;
+            }
+        }
+
+            public void sacuvajOsobu(Osoba osoba)
         {
             var param = new DynamicParameters(new
             {

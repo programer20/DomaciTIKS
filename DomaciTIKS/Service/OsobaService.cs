@@ -1,4 +1,5 @@
-﻿using DomaciTIKS.Repository;
+﻿using DomaciTIKS.models;
+using DomaciTIKS.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,16 @@ namespace DomaciTIKS.Service
         public void obrisiOsobu(int id)
         {
             _osobaRepository.obrisiOsobu(id);
+        }
+
+        public List<Osoba> vratiOsobe()
+        {
+            return _osobaRepository.vratiOsobe();
+        }
+
+        public Osoba vratiOsobu(int id)
+        {
+            return _osobaRepository.vratiOsobu(id);
         }
     }
 }
