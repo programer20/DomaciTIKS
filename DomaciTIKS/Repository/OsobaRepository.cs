@@ -47,6 +47,8 @@ namespace DomaciTIKS.Repository
 
             public void sacuvajOsobu(Osoba osoba)
         {
+
+            Console.WriteLine("REPOSITORY: " + osoba);
             var param = new DynamicParameters(new
             {
                 maticniBroj = osoba.MaticniBroj,

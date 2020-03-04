@@ -21,19 +21,19 @@ namespace DomaciTIKS.Controllers
             this._osobaService = osobaService;
         }
 
-        //[HttpPost("dodajOsobu")]
-        //public void dodajArtikla([FromBody]Osoba osoba)
-        //{
-        //    _osobaService.sacuvajOsobu(osoba);
-        //}
+        [HttpPost("dodajOsobu")]
+        public void sacuvajOsobu([FromBody]Osoba osoba)
+        {
+            _osobaService.sacuvajOsobu(osoba);
+        }
 
-        //[HttpPost("izmeniArtikal")]
-        //public bool izmeniOsobu([FromBody]Osoba osoba)
-        //{
-        //    _osobaService.izmeniOsobu(osoba);
-        //}
+        [HttpPost("izmeniOsobu")]
+        public void izmeniOsobu([FromBody]Osoba osoba)
+        {
+            _osobaService.izmeniOsobu(osoba);
+        }
 
-        [HttpGet("obrisiOsobu/{id}")]
+        [HttpDelete("obrisiOsobu/{id}")]
         public void obrisiOsobu(int id)
         {
             _osobaService.obrisiOsobu(id);
@@ -50,5 +50,6 @@ namespace DomaciTIKS.Controllers
         {
             return _osobaService.vratiOsobu(id);
         }
+
     }
 }

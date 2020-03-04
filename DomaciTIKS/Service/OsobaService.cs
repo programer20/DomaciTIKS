@@ -30,5 +30,15 @@ namespace DomaciTIKS.Service
         {
             return _osobaRepository.vratiOsobu(id);
         }
+
+        public void sacuvajOsobu(Osoba osoba)
+        {
+            _osobaRepository.sacuvajOsobu(osoba);
+        }
+
+        public void izmeniOsobu(Osoba osoba)
+        {
+            _osobaRepository.izmeniOsobu(osoba);
+        }
     }
 }
