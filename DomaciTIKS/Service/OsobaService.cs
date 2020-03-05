@@ -33,12 +33,18 @@ namespace DomaciTIKS.Service
 
         public void sacuvajOsobu(Osoba osoba)
         {
-            _osobaRepository.sacuvajOsobu(osoba);
+            if (OsobaValidator.IsOsobaValid(osoba))
+                _osobaRepository.sacuvajOsobu(osoba);
+            else
+                throw new ArgumentException("Format podataka nije ispravan");
         }
 
         public void izmeniOsobu(Osoba osoba)
         {
-            _osobaRepository.izmeniOsobu(osoba);
+            if (OsobaValidator.IsOsobaValid(osoba))
+                _osobaRepository.izmeniOsobu(osoba);
+            else
+                throw new ArgumentException("Format podataka nije ispravan");
         }
     }
 }

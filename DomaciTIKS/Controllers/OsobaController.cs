@@ -51,5 +51,24 @@ namespace DomaciTIKS.Controllers
             return _osobaService.vratiOsobu(id);
         }
 
+        [HttpGet("test")]
+        public void test()
+        {
+            Console.WriteLine("maticni broj: " + OsobaValidator.IsMaticniBrojValid("2502996123456", new DateTime(1996,2,25)));
+            Console.WriteLine("ime: " + OsobaValidator.IsImeValid("pera"));
+            Console.WriteLine("prezime: " + OsobaValidator.IsPrezimeValid("Pera"));
+            Console.WriteLine("visina: " + OsobaValidator.IsVisinaValid(179));
+            Console.WriteLine("tezina: " + OsobaValidator.IsTezinaValid(800));
+            Console.WriteLine("oci true: " + OsobaValidator.IsBojaOcijuValid("zelene"));
+            Console.WriteLine("oci false: " + OsobaValidator.IsBojaOcijuValid("smedje"));
+            Console.WriteLine("telefon: " + OsobaValidator.IsTelefonValid("063.123.567"));
+            Console.WriteLine("telefon: " + OsobaValidator.IsTelefonValid("+38165.123.567"));
+            Console.WriteLine("telefon: " + OsobaValidator.IsTelefonValid("063.123.567412"));
+            Console.WriteLine("telefon: " + OsobaValidator.IsTelefonValid("+38165123.567"));
+            Console.WriteLine("email: " + OsobaValidator.IsEmailValid("asd@asd.rs"));
+            Console.WriteLine("prebivaliste: " + OsobaValidator.IsPrebivalisteValid("Beograd"));
+
+        }
+
     }
 }
